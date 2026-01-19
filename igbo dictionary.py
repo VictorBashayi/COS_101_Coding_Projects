@@ -1,0 +1,22 @@
+igbo_dictionary = {
+        'come':'bia',
+        'hand':'aka',
+        'meat':'anu',
+        'ear':'nti',
+        'fufu':'akpu',
+        'here':'nga',
+        'spoon':'ngaji',
+        'cloth':'efe',
+        'plate':'efere',
+        'stomach':'afo',
+        'head':'ishi',
+        'house':'ulo',
+        'cup':'iko',
+        'pot':'ite',
+        'yam':'gji',
+        'poo':'nshi',
+        'food':'nri',
+        'water':'nmiri',
+        'one':'otu',
+        'two':'eibo'
+        }
