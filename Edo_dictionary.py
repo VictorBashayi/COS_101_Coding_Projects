@@ -1,0 +1,22 @@
+edo = {
+    "hello": "koyo",
+    "water": "ami",
+    "food": "ikhian",
+    "house": "owa",
+    "come": "ya",
+    "go": "gha",
+    "man": "okpia",
+    "woman": "okhuo",
+    "child": "omo",
+    "good": "noghie",
+    "bad": "khi",
+    "sun": "owia",
+    "moon": "okhuo-owia",
+    "fire": "urhie",
+    "name": "erhan",
+    "money": "owo",
+    "school": "ikpoba",
+    "book": "ebo",
+    "run": "khiagbe",
+    "eat": "ya"
+}
