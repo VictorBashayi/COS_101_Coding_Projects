@@ -1,4 +1,5 @@
 # Creating a Dictionary
+import streamlit as st
 # Different Languages
 ebira_dictionary = { #James Victor Bashayi BHU/25/04/09/0160
     'father' : 'Àdá',
@@ -92,61 +93,88 @@ hausa_dictionary = {
 }
 
 yoruba_dictionary = {
-    "iya": "mother",
-    "bata": "shoes",
-    "omi": "water",
-    "rara": "no",
-    "baba": "father",
-    "ekaro": "good morning",
-    "nibo": "where",
-    "duro": "stand",
-    "rin": "walk",
-    "mu": "drink",
-    "ibi": "place/here",
-    "wa": "come",
-    "lo": "go",
-    "se": "a question marker(like 'is it')",
-    "pele": "sorry",
-    "oko": "car",
-    "e nle o!": "hello",
-    "ile": "house",
-    "omo": "child",
-    "ologbo": "cat",
+    "mother" : "iya",
+    "shoes" : "bata",
+    "water" : "omi",
+    "no" : "rara",
+    "father": "baba",
+    "good morning": "ekaro",
+    "where": "nibo",
+    "stand": "duro",
+    "walk": "rin",
+    "drink": "mu",
+    "place": "ibi",
+    "come": "wa",
+    "go": "lo",
+    "a question marker(like 'is it')": "se",
+    "sorry": "pele",
+    "car": "olo",
+    "hello": "e nle o!",
+    "house": "ile",
+    "child" : "omo",
+    "cat" : "ologbo",
 }
 languages = {
-    "ebira" : ebira_dictionary,
-    "igbo" : igbo_dictionary,
-    "edo" : edo_dictionary,
-    "hausa" : hausa_dictionary,
-    "yoruba" : yoruba_dictionary,
+    "Ebira" : ebira_dictionary,
+    "Igbo" : igbo_dictionary,
+    "Edo" : edo_dictionary,
+    "Hausa" : hausa_dictionary,
+    "Yoruba" : yoruba_dictionary,
 }
 
-print("English to Local Language Translator")
-print("Available languages:")
+    # <------------WITHOUT STREAMLIT--------->
+# print("English to Local Language Translator")
+# print("Available languages:")
+#
+# for lang in languages:
+#     print(f"- {lang.capitalize()}")
+#
+# language = input("\nSelect a language: ").strip().lower()
+#
+# if language == "ebira":
+#     dictionary = ebira_dictionary
+# elif language == "igbo":
+#     dictionary = igbo_dictionary
+# elif language == "edo":
+#     dictionary = edo_dictionary
+# elif language == "hausa":
+#     dictionary = hausa_dictionary
+# elif language == "yoruba":
+#     dictionary = yoruba_dictionary
+# else:
+#     print("Error: Language not supported.")
+#     exit()
+#
+# word = input("Enter an English word to translate: ").strip().lower()
+# translation = dictionary.get(word)
+#
+# if translation:
+#     print(f"Translation: {translation}")
+# else:
+#     print("Error: Word not found in the selected dictionary.")
 
-for lang in languages:
-    print(f"- {lang.capitalize()}")
+    # <---------------WITH STREAMLIT--------------->
+st.title("LANGUAGE TRANSLATOR")
+st.markdown("This App translates English to African/Local Languages")
 
-language = input("\nSelect a language: ").strip().lower()
+st.divider()
 
-if language == "ebira":
-    dictionary = ebira_dictionary
-elif language == "igbo":
-    dictionary = igbo_dictionary
-elif language == "edo":
-    dictionary = edo_dictionary
-elif language == "hausa":
-    dictionary = hausa_dictionary
-elif language == "yoruba":
-    dictionary = yoruba_dictionary
-else:
-    print("Error: Language not supported.")
-    exit()
+language = st.selectbox("Select a language:",languages)
 
-word = input("Enter an English word to translate: ").strip().lower()
-translation = dictionary.get(word)
+if language:
+    selected_dictionary = languages[language]
+    word = st.selectbox("Select a word:",selected_dictionary)
 
-if translation:
-    print(f"Translation: {translation}")
-else:
-    print("Error: Word not found in the selected dictionary.")
+st.divider()
+
+if word:
+    translation = selected_dictionary.get(word)
+    if translation:
+        st.success(f"Translation: {word} in {language} is '{translation}'")
+    else:
+        st.error(f"Translation: {word} in {language} is not available")
+
+st.divider()
+# st.balloons()
+st.write("Thank you for using the app")
+st.feedback()
