@@ -154,23 +154,28 @@ languages = {
 #     print("Error: Word not found in the selected dictionary.")
 
     # <---------------WITH STREAMLIT--------------->
+# Title and Description
 st.title("LANGUAGE TRANSLATOR")
 st.markdown("This App translates English to African/Local Languages")
 
 st.divider()
-# Create selection box for language
+# Create selection box to select a language
 language = st.selectbox("Select a language:",languages)
 
+# From the selected language, select a word
 if language:
     selected_dictionary = languages[language]
     word = st.selectbox("Select a word:",selected_dictionary)
 
 st.divider()
 
+# Check for translation of the word
 if word:
     translation = selected_dictionary.get(word)
+    # Display the translation
     if translation:
         st.success(f"Translation: {word} in {language} is '{translation}'")
+    # Display error message if translation is not found
     else:
         st.error(f"Translation: {word} in {language} is not available")
 
