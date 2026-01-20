@@ -158,7 +158,7 @@ st.title("LANGUAGE TRANSLATOR")
 st.markdown("This App translates English to African/Local Languages")
 
 st.divider()
-
+# Create selection box for language
 language = st.selectbox("Select a language:",languages)
 
 if language:
